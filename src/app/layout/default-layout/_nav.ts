@@ -30,6 +30,40 @@ export const navItems: INavData[] = [
     title: true
   },
   {
+    name: 'Pedidos',
+    url: '/pedidos',
+    iconComponent: { name: 'cil-description' },
+    children: [
+      {
+        name: 'Listar',
+        url: '/pedidos/listar',
+        icon: 'nav-icon-bullet'
+      },
+      {
+        name: 'Relacionar',
+        url: '/pedidos/relacionar',
+        icon: 'nav-icon-bullet'
+      },
+      {
+        name: 'Importar',
+        url: '/pedidos/importar',
+        icon: 'nav-icon-bullet'
+      },
+    ]
+  },
+  {
+    name: 'Embarcador',
+    url: '/embarcador',
+    iconComponent: { name: 'cil-people' },
+    children: [
+      {
+        name: 'cadastrar',
+        url: '/embarcador/cadastrar',
+        icon: 'nav-icon-bullet'
+      },
+    ]
+  },
+  {
     name: 'Base',
     url: '/base',
     iconComponent: { name: 'cil-puzzle' },

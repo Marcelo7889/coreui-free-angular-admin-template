@@ -1,0 +1,68 @@
+<c-card class="mb-4">
+    <c-card-header>
+      Cadastro de Embarcadores
+    </c-card-header>
+    <c-card-body>
+      <c-row>
+        @if (alerta) {
+            <c-alert [(visible)]="alerta" dismissible="true" [color]="cor" fade>
+              {{mensagem}}
+            </c-alert>
+          }
+        <form cForm class="row g-3" [formGroup]="formulario">
+            <c-col [md]="6">
+              <label cLabel for="nome">Embarcador</label>
+              <select aria-label="Default select example" cSelect>
+                <option>Selecionar...</option>
+                <option value="1">Grupo Teresa Regina</option>
+                <option value="2">Santa Cruz</option>
+                <option value="3">Mercado Livre</option>
+              </select>
+            </c-col>
+            <c-col [md]="6">
+              <label cLabel for="cnpj">Codigo Romaneio</label>
+              <input cFormControl id="cnpj" type="text" formControlName="cnpj" required/>
+            </c-col>
+            <c-col [xs]="12">
+              <button cButton type="submit">Importar</button>
+            </c-col>
+          </form>
+      </c-row>
+    </c-card-body>
+</c-card>
+<c-card>
+    <c-card-body>
+      <c-row>
+        <table bordered cTable>
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nome</th>
+              <th scope="col">CNPJ</th>
+              <th scope="col">APIKEY</th>
+              <th scope="col">URLAPI</th>
+              <th scope="col">Editar</th>
+  
+            </tr>
+            </thead>
+            <tbody>
+              @for(empresa of embarcadores; track empresa){
+            <tr>
+              <th scope="row">{{$index + 1}}</th>
+              <td>{{empresa.nome}}</td>
+              <td>{{empresa.cnpj}}</td>
+              <td>Ver</td>
+              <td>{{empresa.urlApi}}</td>
+         
+              <td>editar</td>
+  
+            </tr>
+            }
+  
+            </tbody>
+          </table>
+      </c-row>
+    </c-card-body>
+</c-card>
+
+  

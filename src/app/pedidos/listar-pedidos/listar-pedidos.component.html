@@ -1,0 +1,50 @@
+<c-card class="mb-4">
+    <c-card-header>
+      Pedidos
+    </c-card-header>
+    <c-card-body>
+      <c-row>
+        <form cForm>
+          <div class="mb-3">
+            <label cLabel for="FormChaveAcessoInput">Chave Acesso</label>
+            <input cFormControl
+                   id="FormChaveAcessoInput"
+                   placeholder="000000000000000000000000000000000000000"
+                   type="number"
+            />
+          </div>
+        </form>
+        <table bordered cTable>
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nota</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Rua</th>
+            <th scope="col">Bairro</th>
+            <th scope="col">Cidade</th>
+            <th scope="col">Editar</th>
+
+          </tr>
+          </thead>
+          <tbody>
+            @for(pedido of pedidos; track pedido){
+          <tr>
+            <th scope="row">{{$index + 1}}</th>
+            <td>{{pedido.numeroNotaFiscal}}</td>
+            <td>{{pedido.destinatario.nome}}</td>
+            <td>{{pedido.rua}}, {{pedido.numeroCasa}}</td>
+            <td>{{pedido.bairro}}</td>
+            <td>{{pedido.cidade}}</td>
+            <td>editar</td>
+
+          </tr>
+          }
+
+          </tbody>
+        </table>
+
+      </c-row>
+    </c-card-body>
+</c-card>
+
